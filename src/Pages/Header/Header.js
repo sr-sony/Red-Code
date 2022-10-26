@@ -8,6 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
 import { Button, Image } from 'react-bootstrap';
+import img from '../../Assets/Red code(1).png'
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext);
@@ -19,24 +20,9 @@ const Header = () => {
   }
     return (
 
-    //     <Navbar bg="light" expand="lg">
-    //   <Container>
-    //     <Navbar.Brand><Link to='/'>Red-Code</Link></Navbar.Brand>
-    //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //     <Navbar.Collapse id="basic-navbar-nav">
-    //       <Nav className="me-auto">
-            // <Nav.Link><Link to='/home'>Home</Link></Nav.Link>
-            // <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
-            // <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
-            // <Nav.Link><Link to='/toggle'>Toggle</Link></Nav.Link>
-            // <Nav.Link><Link to='/user'>User</Link></Nav.Link>
-    //       </Nav>
-    //     </Navbar.Collapse>
-    //   </Container>
-    // </Navbar>
-
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
     <Container>
+      <img src={img} alt='' style={{width: "50px", marginRight: "10px", paddingTop: "10px"}}></img>
       <Navbar.Brand><Link to='/'>Red-Code</Link></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
