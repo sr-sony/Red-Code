@@ -5,8 +5,11 @@ import CourseInfo from "../Pages/CourseInfo/CourseInfo";
 import Courses from "../Pages/Courses/Courses";
 import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home";
+import Login from "../Pages/Login/Login/Login";
+import Register from "../Pages/Login/Register/Register";
 import Toggle from "../Pages/Toggle/Toggle";
 import User from "../Pages/User/User";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -29,7 +32,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <CourseInfo></CourseInfo>,
+                element: <PrivateRoute><CourseInfo></CourseInfo></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
             },
             {
@@ -43,6 +46,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/user',
                 element: <User></User>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     }

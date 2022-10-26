@@ -11,8 +11,7 @@ const CourseInfo = () => {
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>{description}</Card.Text>
-                <Card.Text>{rating.rate}</Card.Text>
-                   
+                <Card.Text>{rating.rate}</Card.Text>                
       </Card.Body>
     </Card>
     );
