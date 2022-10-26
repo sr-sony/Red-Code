@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Registration = () => {
-    const { createUser, updateUserProfile, verifyEmail,loginInWithGoogle } = useContext(AuthContext)
+    const { createUser, updateUserProfile, verifyEmail,loginInWithGoogle, loginInWithGithub } = useContext(AuthContext)
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
 
@@ -23,6 +23,20 @@ const Registration = () => {
             console.error(error)
         })
     }
+
+    const githubProvider = new GithubAuthProvider();
+
+    const githubSignIn = () =>{
+        loginInWithGithub(githubProvider)
+        .then(result =>{
+            const user = result.user
+            console.log(user)
+        })
+        .catch(error=>{
+            console.error(error)
+        })
+    }
+
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -101,7 +115,7 @@ const Registration = () => {
             <br></br>
             <ButtonGroup vertical>
                 <Button onClick={googleSignIn} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle> Sign In With Google</Button>
-                <Button className='mb-2' variant="outline-dark"><FaGithub></FaGithub> Sign In With GitHub</Button>
+                <Button className='mb-2' variant="outline-dark" onClick = {githubSignIn}><FaGithub></FaGithub> Sign In With GitHub</Button>
             </ButtonGroup>
         </Form>
         

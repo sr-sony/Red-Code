@@ -4,7 +4,6 @@ import './Header.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
 import { Button, Image } from 'react-bootstrap';
@@ -34,7 +33,7 @@ const Header = () => {
             <Nav.Link><Link to='/user'>User</Link></Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="#deets">{
+          <Nav.Link>{
           user?.uid ?
           <>
             <span>{user?.displayName}</span>
@@ -47,7 +46,7 @@ const Header = () => {
           </>
           }
           </Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
+          <Nav.Link eventKey={2}>
             {
               user?.photoURL ?
               <Image roundedCircle src={user?.photoURL} style={{height: '30px'}}></Image>
