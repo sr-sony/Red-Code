@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import img from '../../Assets/1.png';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -15,7 +16,7 @@ const Home = () => {
           </Card.Text>
         </Card.Body>
       </Card>
-      <Button variant="outline-primary">Browse all our courses</Button>
+      <Button variant="outline-primary"><Link to='/courses'>Browse all our courses</Link></Button>
         </div>
     );
 };

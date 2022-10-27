@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import Container from 'react-bootstrap/Container';
@@ -8,9 +8,11 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
 import { Button, Image } from 'react-bootstrap';
 import img from '../../Assets/Red code(1).png'
+import DarkModeToggle from "react-dark-mode-toggle";
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext);
+    const [isDarkMode, setIsDarkMode] = useState(() => false);
 
   const handleLogOut = () =>{
     logOut()
@@ -22,22 +24,27 @@ const Header = () => {
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
     <Container>
       <img src={img} alt='' style={{width: "50px", marginRight: "10px", paddingTop: "10px"}}></img>
-      <Navbar.Brand><Link to='/'>Red-Code</Link></Navbar.Brand>
+      <Navbar.Brand><Link to='/' style={{textDecoration: "none", fontSize: "24px", fontWeight: "bold", color: "black"}}>Red-Code</Link></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-        <Nav.Link><Link to='/home'>Home</Link></Nav.Link>
-            <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
-            <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
-            <Nav.Link><Link to='/toggle'>Toggle</Link></Nav.Link>
-            <Nav.Link><Link to='/user'>User</Link></Nav.Link>
+        <Nav.Link><Link to='/home' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>Home</Link></Nav.Link>
+            <Nav.Link><Link to='/courses' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>Courses</Link></Nav.Link>
+            <Nav.Link><Link to='/faq' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>FAQ</Link></Nav.Link>
+            <Nav.Link><Link to='/toggle' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>Toggle</Link></Nav.Link>
+            <Nav.Link><Link to='/user' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>User</Link></Nav.Link>
         </Nav>
         <Nav>
+        <DarkModeToggle
+      onChange={setIsDarkMode}
+      checked={isDarkMode}
+      size={80}
+    />
           <Nav.Link>{
           user?.uid ?
           <>
             <span>{user?.displayName}</span>
-            <Button variant='light' onClick={handleLogOut}>Log Out</Button>
+            <Button variant='light' onClick={handleLogOut} style={{margin: "0 10px"}}>Log Out</Button>
           </>
           :
           <>
