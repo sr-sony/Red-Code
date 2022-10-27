@@ -31,8 +31,8 @@ const Header = () => {
         <Nav.Link><Link to='/home' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>Home</Link></Nav.Link>
             <Nav.Link><Link to='/courses' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>Courses</Link></Nav.Link>
             <Nav.Link><Link to='/faq' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>FAQ</Link></Nav.Link>
-            <Nav.Link><Link to='/toggle' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>Toggle</Link></Nav.Link>
-            <Nav.Link><Link to='/user' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>User</Link></Nav.Link>
+            <Nav.Link><Link to='/blog' style={{textDecoration: "none", fontSize: "18px", fontWeight: "bold", color: "black"}}>Blog</Link></Nav.Link>
+            
         </Nav>
         <Nav>
         <DarkModeToggle

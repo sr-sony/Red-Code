@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main/Main";
 import AllCourses from "../Pages/AllCourses/AllCourses";
+import Blog from "../Pages/Blog/Blog";
 import CourseInfo from "../Pages/CourseInfo/CourseInfo";
 import Courses from "../Pages/Courses/Courses";
 import FAQ from "../Pages/FAQ/FAQ";
@@ -38,6 +39,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/faq',
                 element: <FAQ></FAQ>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             },
             {
                 path: '/toggle',
