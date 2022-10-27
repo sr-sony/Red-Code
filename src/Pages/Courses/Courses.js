@@ -8,7 +8,8 @@ const Courses = ({course}) => {
     const {title,image,description,id} = course;
     console.log(course);
     return (
-        <Card className='card-container'>
+        <>
+        <Card className='card-container mb-5' style={{boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
             <Card.Img variant="top" src={image} className='card-img' />
             <Card.Body>
                 <Card.Title className='card-title'>{title}</Card.Title>
@@ -18,6 +19,7 @@ const Courses = ({course}) => {
                     </Link>
             </Card.Body>
         </Card>
+        </>
     );
 };
 

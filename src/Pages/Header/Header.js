@@ -38,25 +38,25 @@ const Header = () => {
         <DarkModeToggle
       onChange={setIsDarkMode}
       checked={isDarkMode}
-      size={80}
+      size={50}
+      className='mt-3 mx-2'
     />
           <Nav.Link>{
           user?.uid ?
           <>
-            <span>{user?.displayName}</span>
-            <Button variant='light' onClick={handleLogOut} style={{margin: "0 10px"}}>Log Out</Button>
+            {/* <span>{user?.displayName}</span> */}
+            <Button variant='danger' className='fw-semibold' onClick={handleLogOut}>Log Out</Button>
           </>
           :
           <>
-          <Link to='/login'>Login</Link>
-          <Link to='/register'>Register</Link>
+          <Button variant='warning'><Link className='text-decoration-none text-white fw-semibold' to='/login'>Login</Link></Button>
           </>
           }
           </Nav.Link>
-          <Nav.Link eventKey={2}>
+          <Nav.Link eventKey={2} className='mx-2'>
             {
               user?.photoURL ?
-              <Image roundedCircle src={user?.photoURL} style={{height: '30px'}}></Image>
+              <Image roundedCircle src={user?.photoURL} style={{height: '40px'}} title={user?.displayName ? user?.displayName : user?.email}></Image>
               :
               <FaUserAlt></FaUserAlt>
             }

@@ -8,12 +8,16 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
+
 const Registration = () => {
     const { createUser, updateUserProfile, verifyEmail,loginInWithGoogle, loginInWithGithub } = useContext(AuthContext)
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
+    
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    
     const googleSignIn = () =>{
         loginInWithGoogle(googleProvider)
         .then(result=>{
@@ -24,7 +28,6 @@ const Registration = () => {
         })
     }
 
-    const githubProvider = new GithubAuthProvider();
 
     const githubSignIn = () =>{
         loginInWithGithub(githubProvider)
@@ -83,6 +86,9 @@ const Registration = () => {
             .catch(error => console.error(error))
     }
     return (
+        <>
+        <h2 className='mt-4 fw-semibold text-danger mb-4'>Please Sign Up</h2>
+        <div className='mx-auto'>
         <Form onSubmit={handleRegister}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Your Name</Form.Label>
@@ -106,19 +112,24 @@ const Registration = () => {
                     label={<>Accept <Link to='/terms'>to our terms and conditions</Link></>}
                 />
             </Form.Group>
-            <Button variant="primary" type="submit" disabled={!accepted}>
-                Registration
+            <Button className='mb-3' variant="primary" type="submit" disabled={!accepted}>
+                Register
             </Button>
-            <Form.Text className='text-danger'>
+            <Form.Text className='text-danger mb-4'>
                 {error}
             </Form.Text>
             <br></br>
-            <ButtonGroup vertical>
-                <Button onClick={googleSignIn} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle> Sign In With Google</Button>
-                <Button className='mb-2' variant="outline-dark" onClick = {githubSignIn}><FaGithub></FaGithub> Sign In With GitHub</Button>
+            <ButtonGroup vertical className='mt-3 d-inline-flex flex-row'>
+                <div>
+                <Button onClick={googleSignIn} className='mb-2' variant="outline-primary"><FaGoogle className='me-2'></FaGoogle>Google</Button>
+                </div>
+                <div>
+                <Button className='mb-2 ms-2' variant="outline-dark" onClick = {githubSignIn}><FaGithub className='me-2'></FaGithub>GitHub</Button>
+                </div>
             </ButtonGroup>
         </Form>
-        
+        </div>
+        </>
     );
 };
 
