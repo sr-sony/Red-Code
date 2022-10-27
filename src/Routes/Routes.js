@@ -8,6 +8,7 @@ import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
+import Page404 from "../Pages/Page404/Page404";
 import Toggle from "../Pages/Toggle/Toggle";
 import User from "../Pages/User/User";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -59,6 +60,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/*',
+                element: <Page404></Page404>
             }
         ]
     }
